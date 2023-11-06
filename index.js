@@ -21,7 +21,7 @@ const options = [
 
 const app = express();
 app.use(options);
-const server = createServer(app)
+const server = createServer(app);
 
 app.use(express.static(join(__dirname, '../client/dist')))
 
