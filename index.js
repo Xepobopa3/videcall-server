@@ -14,10 +14,7 @@ const server = createServer(app)
 
 app.use(express.static(join(__dirname, '../client/dist')))
 
-const io = new Server(server, {
-    cors: "https://videocall-front.vercel.app/",
-    serveClient: false
-})
+const io = new Server(server, {transports : ['websocket'], serveClient: false });
 io.on('connection', initSocket)
 
 const port = 5000
