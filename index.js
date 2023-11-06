@@ -6,10 +6,21 @@ import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
 import { Server } from 'socket.io'
 import initSocket from './util/initSocket.js'
+import cors from 'cors';
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
-const app = express()
+const options = [
+    cors({
+        origin: '*',
+        methods: '*',
+        allowedHeaders: '*',
+        credentials: true,
+    })
+];
+
+const app = express();
+app.use(options);
 const server = createServer(app)
 
 app.use(express.static(join(__dirname, '../client/dist')))
