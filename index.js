@@ -15,7 +15,7 @@ const server = createServer(app)
 app.use(express.static(join(__dirname, '../client/dist')))
 
 const io = new Server(server, {
-    cors: "https://vercel.com/xepobopas-projects/videcall-server-9tfx",
+    cors: "https://videocall-front.vercel.app/",
     serveClient: false
 })
 io.on('connection', initSocket)
